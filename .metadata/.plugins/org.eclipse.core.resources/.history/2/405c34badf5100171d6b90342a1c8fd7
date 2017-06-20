@@ -1,0 +1,27 @@
+ .global fib
+
+fib:
+	// Compute the fiboncacci value
+
+base_case_one:		// If n = 0, return 0
+	cmp r0, #0
+	bne base_case_two:	// Check next base case
+	mov r0, #0
+	mov pc, lr		// Return 0
+
+base_case_two:		// If n = 1, return 1
+	cmp r0, #1
+	bne recurse		// Base cases are not triggered, must recurse
+	mov r0, #1
+	mov pc, lr		// Return 1
+
+recurse:
+	push {r0}		// Push the value onto the stack
+	sub r0, r0, #1
+	b fib			// Compute fib(n-1)
+	mov r3, r0		// Save the value of fib(n-1)
+	pop {r0}			// Get the value off the stack
+	sub r0, r0, #2
+	b fib			// Compute fib(n-2)
+	add r0, r0, r3	// Add them together
+	mov pc, lr		// Return final value

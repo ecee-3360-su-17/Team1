@@ -1,0 +1,94 @@
+/*************************************
+    Filename:   main.c
+
+    Creator:    Daniel K Langevin
+    Date:       2017
+
+*************************************/
+
+#include <stdint.h>
+#include <stdbool.h>
+#include "inc/hw_memmap.h"
+#include "driverlib/gpio.h"
+#include "driverlib/sysctl.h"
+
+extern int fib(int n);
+void blink(int n);
+char num2Morse(int n);
+
+void blinkAll(int n){
+
+    int x = n;
+    int mag = 1;
+
+    while(x > 0){
+        x = x / 10;
+        mag = mag * 10;
+    }
+    while(mag > 0){
+        mag = mag / 10;
+        x = n / mag;
+        blink(n);
+        n = n % 10;
+    }
+}
+
+int main(void)
+{
+   // int n = fib(5);
+    //blinkAll(n);
+    blink(2);
+	return 0;
+}
+
+// Blinks the number n in Morse code.
+void blink(int n){
+
+    volatile uint32_t ui32Loop;
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
+    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOF))
+        {
+        }
+    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_3);
+
+    char pattern = num2Morse(n);
+    int i;
+
+    for(i = 0; i < 5; i++){
+        int state = pattern & 0b10000;
+        pattern = pattern << 1;
+        GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, GPIO_PIN_3);
+        if(state == 1){
+            for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++){}
+        }
+        else{
+            for(ui32Loop = 0; ui32Loop < 100000; ui32Loop++){}
+        }
+        GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, 0x0);
+
+    }
+
+    for(ui32Loop = 0; ui32Loop < 400000; ui32Loop++){}
+
+
+}
+
+// Convert n to Morse code binary.
+char num2Morse(int n){
+
+    // Converts n to a 5-bit string.
+    switch(n){
+        case 0: return 0b11111;
+        case 1: return 0b01111;
+        case 2: return 0b00111;
+        case 3: return 0b00011;
+        case 4: return 0b00001;
+        case 5: return 0b00000;
+        case 6: return 0b10000;
+        case 7: return 0b11000;
+        case 8: return 0b11100;
+        case 9: return 0b11110;
+        default: return 0;
+    }
+
+}
