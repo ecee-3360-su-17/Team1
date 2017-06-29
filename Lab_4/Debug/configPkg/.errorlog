@@ -1,9 +1,0 @@
-gmake: /Users/dannylangevin/Desktop/School/Senior/Digital: No such file or directory
-gmake: *** No rule to make target `/Users/dannylangevin/Desktop/School/Senior/Digital'.  Stop.
-error: xdc.cfg.SourceDir: "/Applications/ti/xdctools_3_32_00_06_core/packages/xdc/cfg/SourceDir.xs", line 209: xdc.cfg.SourceDir : Build of generated source libraries failed: exit status = 2:
-
-js: "/Applications/ti/xdctools_3_32_00_06_core/packages/xdc/cfg/Main.xs", line 160: Error: Configuration failed!
-gmake: *** [package/cfg/empty_pem4f.xdl] Error 1
-gmake: *** Deleting file `package/cfg/empty_pem4f.xdl'
-gmake: *** [package/cfg/empty_pem4f.xdl] Deleting file `package/cfg/empty_pem4f.h'
-gmake: *** [package/cfg/empty_pem4f.xdl] Deleting file `package/cfg/empty_pem4f.c'
