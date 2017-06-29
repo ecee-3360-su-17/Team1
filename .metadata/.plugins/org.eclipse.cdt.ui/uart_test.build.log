@@ -1,0 +1,17 @@
+
+**** Build of configuration Debug for project uart_test ****
+
+/Applications/ti/ccsv7/utils/bin/gmake -k -j 3 all -O 
+Building file: ../main.c
+Invoking: ARM Compiler
+"/Applications/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="/Users/dannylangevin/Desktop/School/Senior/Digital Design Lab/Team1/uart_test" --include_path="/Applications/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d"  "../main.c"
+
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'main.obj' failed
+"../main.c", line 38: fatal error #1965: cannot open source file "xdc/std.h"
+1 catastrophic error detected in the compilation of "../main.c".
+Compilation terminated.
+gmake: *** [main.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****

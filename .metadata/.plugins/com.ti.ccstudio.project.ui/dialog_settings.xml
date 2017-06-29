@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="com.ti.ccstudio.project.ui.internal.wizards.project.ProjectSettingsPage">
-		<item value="" key="CCS.CONNECTION"/>
+		<item value="/Applications/ti/ccsv7/ccs_base/common/targetdb/connections/Stellaris_ICDI_Connection.xml" key="CCS.CONNECTION"/>
 		<item value="devices/tm4c1294ncpdt.xml" key="CCS.TARGET"/>
 		<section name="1">
 			<item value="" key="CCS.TOOL_CHAIN"/>
@@ -16,7 +16,11 @@
 	<section name="com.ti.ccstudio.project.ui.internal.properties.DynamicPropertiesPageManager">
 	</section>
 	<section name="com.ti.ccstudio.project.ui.internal.preferences.DynamicPreferencePageManager">
+		<item value="false" key="CCS.VIEW_ADVANCED"/>
 	</section>
 	<section name="CCS.ImportCCSProjectWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_IMPORT_REFERENCED_PROJECTS_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 	</section>
 </section>
