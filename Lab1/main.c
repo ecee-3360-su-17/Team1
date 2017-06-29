@@ -1,7 +1,7 @@
 /*************************************
     Filename:   main.c
 
-    Creator:    Daniel K Langevin
+    Creator:    Daniel Langevin, Yang Hu,
     Date:       2017
 
 *************************************/
@@ -18,12 +18,17 @@
 
 extern int fib(int n);
 void blink(int n, int color);
+void blinkAll(int n);
 char num2Morse(int n);
+
 
 // Main function.
 int main(void)
 {
-    int n = fib(7);    // Calculate the Fibonacci number
+
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
+
+    int n = fib(24);    // Calculate the Fibonacci number
     blinkAll(n);        // Blink all the digits
     return 0;
 }
@@ -54,11 +59,10 @@ void blink(int n, int color){
     volatile uint32_t ui32Loop;     // Loop counter
     int i;                          // Loop counter
 
-    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
-    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOF)){}
 
-    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, BLUE);       // Enable the blue LED
-    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, RED);        // Enable the red LED
+    ;while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOF)){}
+
+    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, BLUE|RED);
 
     char pattern = num2Morse(n);    // Convert the decimal digit into Morse code.
 
@@ -68,24 +72,24 @@ void blink(int n, int color){
         int bit = pattern >> (4-i);     // Shift bits
         int state = bit & 0b1;          // Mask bits
 
-        if(color == 1) GPIOPinWrite(GPIO_PORTF_BASE, BLUE, BLUE);   // Turn off blue LED
+        if(color == 1) GPIOPinWrite(GPIO_PORTF_BASE, BLUE, BLUE);   // Turn on blue LED
         else GPIOPinWrite(GPIO_PORTF_BASE, RED, RED);               // Turn on red LED
 
         if(state == 1){
-            for(ui32Loop = 0; ui32Loop < 400000; ui32Loop++){}      // Dash, so long wait...........
+            SysCtlDelay(4000000);      // Dash, so long wait...........
         }
         else{
-            for(ui32Loop = 0; ui32Loop < 100000; ui32Loop++){}      // Dot, so short wait...
+            SysCtlDelay(1000000);      // Dot, so short wait...
         }
 
         if(color == 1) GPIOPinWrite(GPIO_PORTF_BASE, BLUE, 0x0);    // Turn off blue LED
         else GPIOPinWrite(GPIO_PORTF_BASE, RED, 0x0);               // Turn off red LED
 
-        for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++){}      // Wait a bit between each dot/dash
+        SysCtlDelay(2000000);      // Wait a bit between each dot/dash
 
     }
 
-    for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++){}     // Extra long wait between digits
+    SysCtlDelay(10000000);     // Extra long wait between digits
 
 }
 

@@ -1,0 +1,3 @@
+error: xdc.cfg.Program: "/Applications/ti/xdctools_3_50_02_20_core/packages/xdc/cfg/Program.xs", line 71: xdc.cfg.Program : The package 'ti.sysbios.knl' is not compatible with XDCtools used in this build. Please either use XDCtools compatible with that package, or update the product containing that package, or rebuild the package with XDCtools 3.50 or later.
+js: "/Applications/ti/xdctools_3_50_02_20_core/packages/xdc/cfg/Main.xs", line 160: Error: Configuration failed!
+gmake: *** [package/cfg/empty_pem4f.xdl] Error 1
