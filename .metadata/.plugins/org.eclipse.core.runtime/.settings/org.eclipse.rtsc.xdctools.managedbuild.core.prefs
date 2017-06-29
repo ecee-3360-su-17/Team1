@@ -1,5 +1,0 @@
-PREVIOUSLY_DISCOVERED_SITES=/Applications/ti/tirtos_tivac_2_16_00_08;/Applications/ti/xdctools_3_32_00_06_core;
-PRODUCTS=com.ti.rtsc.TIRTOStivac\:2.16.0.08;
-XDC_PATH=/Applications/ti/tirtos_tivac_2_16_00_08/packages;/Applications/ti/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages;/Applications/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages;/Applications/ti/tirtos_tivac_2_16_00_08/products/ndk_2_25_00_09/packages;/Applications/ti/tirtos_tivac_2_16_00_08/products/uia_2_00_05_50/packages;/Applications/ti/tirtos_tivac_2_16_00_08/products/ns_1_11_00_10/packages;
-XDC_VERSION=3.32.0.06_core
-eclipse.preferences.version=1

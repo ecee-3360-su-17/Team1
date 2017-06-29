@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<section name="Workbench">
-	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
-		<item value="/Applications/ti/tirtos_tivac_2_16_00_08/tirtos_tivac_2_16_00_08_examples/TI/EK_TM4C123GXL/uartecho"/>
-	</list>
-</section>
